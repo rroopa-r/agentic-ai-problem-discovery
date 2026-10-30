@@ -1,0 +1,14 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16 # This image has the 'vector' extension pre-installed
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: discovery_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
